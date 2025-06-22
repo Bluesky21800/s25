@@ -77,23 +77,29 @@ const imageNames = [
   /* ---------- FIRST LOAD ---------- */
   showSlide(0);                         // show first slide on page load
 
-/* -------------- HEART CONFETTI -------------- */
-function spawnHearts(count = 25) {
-    const slide = document.getElementById('slide1');   // first slide
+/* ------------ HEART CONFETTI (fixed) ------------ */
+function spawnHearts(count = 30) {
+
+    // store each emoji as a separate array element
+    const hearts = ["💗","💖","💕","💞","💘","💝"];
+  
     for (let i = 0; i < count; i++) {
       const span = document.createElement('span');
       span.className = 'heart';
-      span.textContent = '💖💗💕💞💘💝'.split('')[i % 6];  // cycle emojis
   
-      // randomise each heart
+      // pick one emoji at random
+      span.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  
+      // randomise look & motion
       span.style.left = Math.random() * 100 + 'vw';
       span.style.fontSize = (Math.random() * 1.4 + 0.6).toFixed(2) + 'rem';
       span.style.animationDuration = (6 + Math.random() * 6).toFixed(2) + 's';
       span.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
   
-      slide.appendChild(span);
+      document.body.appendChild(span);
     }
   }
   
-window.addEventListener('load', () => spawnHearts(30));
+  window.addEventListener('load', () => spawnHearts(30));
+  
   
