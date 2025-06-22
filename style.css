@@ -124,3 +124,68 @@ ol{
 .slide.active{
   overflow-y: auto;    /* NEW  */
 }
+/* ---- Sparkle animation for headline emojis ---- */
+@keyframes twinkle {
+  0%, 90% { opacity: 0.2; transform: translateY(-2px) rotate(-6deg); }
+  50%     { opacity: 1;   transform: translateY(0)    rotate( 0deg); }
+}
+
+.spark {
+  display: inline-block;
+  animation: twinkle 2.2s infinite ease-in-out;
+}
+
+/* =========================================
+   HEART-CONFETTI BACKGROUND – Slide 1
+   ========================================= */
+@keyframes heartFall {
+  0%   { transform: translateY(-100vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.7; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0.7; }
+}
+
+/* the slide we marked with class="hearts" */
+.hearts::before,
+.hearts::after{
+  content: "💗 💖 💕 💘 💝 💓 💞 💟 💖 💕";
+  position: fixed;          /* stay relative to viewport */
+  top:   -10vh;             /* start above screen */
+  left:   0;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  pointer-events: none;     /* clicks pass through */
+  white-space: nowrap;
+  animation: heartFall 12s linear infinite;
+}
+
+/* second layer: smaller hearts, slower fall, little delay */
+.hearts::after{
+  font-size: 1.6rem;
+  animation-duration: 16s;
+  animation-delay: 4s;
+  opacity: 0.6;
+}
+
+/* =======================================
+   FLOATING HEART CONFETTI  – reusable
+   ======================================= */
+   @keyframes heartFall {
+    0%   { transform: translateY(-10vh) rotate(0deg);   opacity: 0; }
+    10%  { opacity: .9; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: .9; }
+  }
+  
+  .heart {
+    position: fixed;
+    top: -10vh;                  /* start above viewport */
+    pointer-events: none;
+    z-index: 5;                  /* floats over background, under text */
+    animation-name: heartFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* these three properties (left, duration, delay) are set inline by JS */
+    filter: drop-shadow(0 0 4px rgba(255,255,255,.5));
+  }
+  
+  
