@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #202646, #922c6f);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #aefeff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  display: none;
+  text-align: center;
+}
+
+.slide.active {
+  display: block;
+}
+
+.nav-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+/* NEW –– affects only the game-slide arrows */
+#slide3 .nav-buttons{
+  position: fixed;      /* pin to viewport */
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;        /* stay on top of cards */
+}
+
+ol{
+  margin:0 auto;
+  display:inline-block;   /* lets it center but keep left-aligned text */
+  text-align:left;        /* so numbers & sentences align nicely */
+}
+.next-btn,
+.prev-btn {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #aefeff;
+  border-radius: 50%;
+  background: transparent;
+  color: #aefeff;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Back button tweaks */
+.prev-btn {
+  transform: scaleX(-1); /* mirror the arrow if you want it flipped */
+  border-color: #ffafc1; /* optional: make it soft pink */
+  color: #ffafc1;
+}
+
+.prev-btn:hover {
+  background: #ffafc1;
+  color: #202646;
+}
+
+/* Next button hover */
+.next-btn:hover {
+  background: #aefeff;
+  color: #202646;
+}
+
+#game-board {                 /* stretch nicely on desktop & mobile */
+  width: 80%;
+  max-width: 900px;
+  margin: 20px auto;
+  margin-bottom: 200px;   /* ≈ arrow height (60) + extra gap */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.memory-card {
+  background:#ffe6f1;
+  border:2px solid #f8b6c1;
+  border-radius:10px;
+  width:100%;
+  aspect-ratio:1/1;
+  position:relative;
+  cursor:pointer;
+  transition:transform .3s;
+}
+.memory-card img {
+  width:100%; height:100%;
+  object-fit:contain;
+  border-radius:10px;
+  display:none;               /* start facedown */
+}
+.memory-card.flipped img {display:block;}
+.memory-card.matched  {background:#caffc6; cursor:default;}
+
+/* medium (≤900 px) • 4 columns */
+@media (max-width: 900px){
+  #game-board{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* small (≤600 px) • 3 columns */
+@media (max-width: 600px){
+  #game-board{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Allow vertical scroll on whichever slide is shown */
+.slide.active{
+  overflow-y: auto;    /* NEW  */
+}

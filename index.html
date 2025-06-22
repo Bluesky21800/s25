@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="slide active" id="slide1">
+    <h1>HAPPY BIRTHDAY, MY LOVE</h1>
+    <p>ein kleines Geschenk für die Liebe meines Lebens</p>
+    <div class="nav-buttons">
+      <button class="next-btn">→</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide2">
+    <h2>23 reasons I love you</h2>
+    <ol>
+  <li>You make me laugh even on my worst days.</li>
+  <li>Your eyes still give me butterflies.</li>
+  <li>You believe in my dreams more than I sometimes do.</li>
+  <li>The way you hug me feels like home.</li>
+  <li>You remember the little details no one else notices.</li>
+  <li>Your kindness to strangers inspires me.</li>
+  <li>We can be perfectly silly together.</li>
+  <li>Your voice calms every storm in my head.</li>
+  <li>You challenge me to grow, gently.</li>
+  <li>We share inside jokes that never get old.</li>
+  <li>Your smile lights up a whole room—and my heart.</li>
+  <li>You celebrate my wins as if they’re your own.</li>
+  <li>The way you love your family shows your beautiful heart.</li>
+  <li>You make ordinary moments feel magical.</li>
+  <li>We can sit in silence and still feel connected.</li>
+  <li>Your curiosity about the world keeps life exciting.</li>
+  <li>You forgive quickly and love fiercely.</li>
+  <li>Our adventures together turn into my favorite stories.</li>
+  <li>You encourage me when I doubt myself.</li>
+  <li>The little notes and surprises you leave me.</li>
+  <li>Your honesty—even when it’s hard—builds my trust in you.</li>
+  <li>You love me exactly as I am, yet help me be my best.</li>
+  <li>With you, I’ve learned what real, unconditional love feels like.</li>
+</ol>
+
+    <div class="nav-buttons">
+      <button class="prev-btn">→</button>
+      <button class="next-btn">→</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide3">
+    <h2>🧠 Memory Game: Our Moments</h2>
+    <p>Find the matching pairs of our memories!</p>
+    <div id="game-board"></div>
+    <div class="nav-buttons">
+      <button class="prev-btn">→</button>
+      <button class="next-btn">→</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide4">
+    <h2>I love you! …and here’s your surprise</h2>
+  
+    <div class="video-wrap">
+      <video id="surprise"
+       src="Rick_Roll.mp4"
+       playsinline controls loop
+       style="width:100%; max-width:90vmin; max-height:80vh; border-radius:12px;">
+      </video>
+      <script>
+        const vid = document.getElementById('surprise');
+        
+        /* whenever the browser pauses for ANY reason, resume instantly */
+        vid.addEventListener('pause', () => vid.play());
+        </script>
+        
+    </div>
+  
+    <div class="nav-buttons">
+      <button class="prev-btn">→</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
